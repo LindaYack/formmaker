@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>许愿树</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+      		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      		<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+	</head>
+
+	<body style="background: url(img/wishtree.gif) round;background-size: cover;" class="container">
+		<audio autoplay src="audio/wish.aac" loop></audio>
+		<div class="row clearfix navbar-fixed-bottom">
+			<div class="col-md-6 column">
+				<button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#sendwishmodal">许愿</button>
+			</div>
+			<div class="col-md-6 column">
+				<button type="button" class="btn btn-lg btn-success btn-block" data-toggle="modal" data-target="#viewwishmodal">查看愿望</button>
+			</div>
+		</div>
+		<!--
+        	作者：offline
+        	时间：2017-01-12
+        	描述：许愿的模态窗
+        -->
+		<div class="modal fade" id="sendwishmodal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title">许愿</h4>
+					</div>
+					<div class="modal-body">
+						<form role="form" id="sendmessageform">
+							<div class="form-group">
+								<label for="sendto">给</label>
+								<input type="text" class="form-control" name="sendto" placeholder="给谁" id="sendto">
+							</div>
+							<div class="form-group">
+								<label for="wish">愿望</label>
+								<textarea type="text" class="form-control" name="wish" id="wish" placeholder="愿望" rows="5" style="resize: none;"></textarea>
+							</div>
+							<div class="form-group">
+								<label for="signname">签名</label>
+								<input type="text" class="form-control" name="signname" id="signname" placeholder="签名">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary">许愿</button><button class="btn btn-default" data-dismiss="modal">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--
+        	作者：offline
+        	时间：2017-01-12
+        	描述：查看愿望的模态窗
+        -->
+		<div class="modal fade" id="viewwishmodal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title">查看愿望</h4>
+					</div>
+					<div class="modal-body">
+						<h3>给:<span id="viewto">我自己</span></h3>
+						<p>愿：<span id="viewwish">身体健康，万事如意！</span></p>
+						<h4 class="text-right"><span id="viewsign">Jay</span>  许</h4>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary">下一个</button><button class="btn btn-default" data-dismiss="modal">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
