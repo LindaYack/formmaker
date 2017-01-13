@@ -13,14 +13,14 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
-	<context:component-scan base-package="sy.controller" />
+	<context:component-scan base-package="com.jaychallenge.wish.controller" />
 
 	<!-- Spring MVC JSON配置 -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
 				<!-- <bean id="fastJsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter"> -->
-				<bean id="fastJsonHttpMessageConverter" class="sy.util.FastJsonHttpMessageConverter">
+				<bean id="fastJsonHttpMessageConverter" class="com.jaychallenge.wish.util.FastJsonHttpMessageConverter">
 					<property name="supportedMediaTypes">
 						<list>
 							<value>text/html;charset=UTF-8</value><!-- 避免IE出现下载JSON文件的情况 -->
@@ -36,33 +36,4 @@
 
 	<!-- 文件上传配置 -->
 	<!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> <property name="defaultEncoding"> <value>UTF-8</value> </property> <property name="maxUploadSize"> <value>32505856</value> </property> <property name="maxInMemorySize"> <value>4096</value> </property> </bean> -->
-
-	<!-- 拦截器 -->
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/**" />
-			<bean class="sy.interceptors.SecurityInterceptor">
-				<!-- 不需要权限验证的地址 -->
-				<property name="excludeUrls">
-					<list>
-						<value>/initController/init</value><!-- 初始化数据库 -->
-						<value>/resourceController/tree</value><!-- 首页左侧功能菜单 -->
-						<value>/userController/reg</value><!-- 用户注册 -->
-						<value>/userController/login</value><!-- 用户登录 -->
-						<value>/userController/loginCombobox</value><!-- 用户登录里面的autocomplete功能 -->
-						<value>/userController/loginCombogrid</value><!-- 用户登录里面的combogrid功能 -->
-						<value>/userController/logout</value><!-- 注销登录 -->
-						<value>/resourceController/allTree</value><!-- 角色访问资源下拉树 -->
-						<value>/roleController/tree</value><!-- 用户访问角色树(只能看到自己拥有的角色) -->
-						<value>/roleController/allTree</value><!-- 用户访问角色树 -->
-						<value>/userController/editCurrentUserPwdPage</value><!-- 用户修改自己的密码页面 -->
-						<value>/userController/editCurrentUserPwd</value><!-- 用户修改自己的密码 -->
-						<value>/userController/currentUserRolePage</value><!-- 查看自己的角色页面 -->
-						<value>/userController/currentUserResourcePage</value><!-- 查看自己的权限页面 -->
-					</list>
-				</property>
-			</bean>
-		</mvc:interceptor>
-	</mvc:interceptors>
-
 </beans>
