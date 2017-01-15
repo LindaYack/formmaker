@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-@Entity
+@Entity 
 public class Wish implements java.io.Serializable{
 
 	private static final long serialVersionUID = 8467762966067337538L;
